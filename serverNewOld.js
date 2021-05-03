@@ -9,7 +9,7 @@ const validUrl = require("valid-url");
 
 mongoose
   .connect(
-    "mongodb+srv://elFelix:Jujuy1030@clusterchuru.v8yea.mongodb.net/ClusterChuru?retryWrites=true&w=majority",
+    "insert db direction here",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
