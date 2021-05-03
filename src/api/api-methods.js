@@ -12,25 +12,25 @@ const postUrl = async (req, res) => {
   console.log(url);
 
   if (!validUrl.isWebUri(url)) {
-    res.status(401).json({
-      error: "invalid url",
+    res.json({
+     error: 'invalid URL' 
     });
   } else {
     try {
       let findOne = await Url.findOne({
-        original_url: url,
+        original_url: url
       });
       if (findOne) {
         res.json({
           original_url: findOne.original_url,
-          short_url: findOne.short_url,
+          short_url: findOne.short_url
         });
       } else {
         findOne = new Url({ original_url: url, short_url: urlCode });
         await findOne.save();
         res.json({
           original_url: findOne.original_url,
-          short_url: findOne.short_url,
+          short_url: findOne.short_url
         });
       }
     } catch (e) {
@@ -42,15 +42,15 @@ const postUrl = async (req, res) => {
 
 const getUrl = async (req, res) => {
   try {
-    const short = req.params.short_url;
+    const short = req.params.shorturl;
     const urlParams = await Url.findOne({
-      short_url: short,
+      short_url: short
     });
 
     if (urlParams) {
       return res.redirect(urlParams.original_url);
     } else {
-      return res.status(404).json("Url not found ");
+      return res.json({ error: 'invalid URL' });
     }
   } catch (e) {
     console.error(e);

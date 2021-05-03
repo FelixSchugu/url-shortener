@@ -10,7 +10,7 @@ const Api = require("./src/api/api-methods");
 
 mongoose
   .connect(
-    "insert db direction ",
+    "mongodb+srv://elFelix:Jujuy1030@clusterchuru.v8yea.mongodb.net/ClusterChuru?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -36,7 +36,7 @@ app.get("/", function (req, res) {
   res.sendFile(process.cwd() + "/views/index.html");
 });
 
-app.post("/api/shorturl/new", (req, res) => Api.postUrl(req, res));
+app.post("/api/shorturl", (req, res) => Api.postUrl(req, res));
 app.get("/api/shorturl/:shorturl?", (req, res) => Api.getUrl(req, res));
 
 app.listen(port, function () {
