@@ -10,7 +10,7 @@ const Api = require("./src/api/api-methods");
 
 mongoose
   .connect(
-    "mongodb+srv://elFelix:Jujuy1030@clusterchuru.v8yea.mongodb.net/ClusterChuru?retryWrites=true&w=majority",
+    "insert db address here",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
